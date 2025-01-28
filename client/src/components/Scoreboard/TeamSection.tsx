@@ -6,14 +6,14 @@ import { PlusCircle, MinusCircle } from "lucide-react";
 interface TeamSectionProps {
   name: string;
   score: number;
-  logoUrl?: string;
+  teamCode?: string;
   onScoreChange: (newScore: number) => void;
 }
 
 export const TeamSection = ({ 
   name, 
   score, 
-  logoUrl,
+  teamCode,
   onScoreChange,
 }: TeamSectionProps) => {
   const handleScoreChange = (increment: boolean) => {
@@ -23,9 +23,9 @@ export const TeamSection = ({
 
   return (
     <div className="flex flex-col items-center gap-6 p-6 border-4 border-gray-300 rounded-lg bg-gray-900 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
-      <LogoDisplay logoUrl={logoUrl} />
+      <LogoDisplay teamCode={teamCode} />
       <div className="text-2xl font-bold text-gray-100 uppercase tracking-wider">
-        {name.slice(0, 3)}
+        {name}
       </div>
       <div className="flex items-center gap-4">
         <Button

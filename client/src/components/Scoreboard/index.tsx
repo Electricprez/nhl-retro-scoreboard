@@ -12,8 +12,8 @@ export const Scoreboard = () => {
   const [period, setPeriod] = useState(1);
   const [isPaused, setIsPaused] = useState(true);
   const [periodLength] = useState(20); // 20 minute periods
-  const [homeLogo, setHomeLogo] = useState<string>();
-  const [awayLogo, setAwayLogo] = useState<string>();
+  const [homeTeamCode, setHomeTeamCode] = useState<string>("PHI");  // Philadelphia Flyers
+  const [awayTeamCode, setAwayTeamCode] = useState<string>("WPG");  // Winnipeg Jets
 
   const handleHomeScoreChange = (newScore: number) => {
     setIsPaused(true);
@@ -39,7 +39,7 @@ export const Scoreboard = () => {
           <TeamSection
             name={homeTeam}
             score={homeScore}
-            logoUrl={homeLogo}
+            teamCode={homeTeamCode}
             onScoreChange={handleHomeScoreChange}
           />
         </div>
@@ -67,7 +67,7 @@ export const Scoreboard = () => {
           <TeamSection
             name={awayTeam}
             score={awayScore}
-            logoUrl={awayLogo}
+            teamCode={awayTeamCode}
             onScoreChange={handleAwayScoreChange}
           />
         </div>

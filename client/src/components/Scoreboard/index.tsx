@@ -12,6 +12,8 @@ export const Scoreboard = () => {
   const [period, setPeriod] = useState(1);
   const [isPaused, setIsPaused] = useState(true);
   const [periodLength] = useState(20); // 20 minute periods
+  const [homeLogo, setHomeLogo] = useState<string>();
+  const [awayLogo, setAwayLogo] = useState<string>();
 
   const handleHomeScoreChange = (newScore: number) => {
     setIsPaused(true);
@@ -21,6 +23,15 @@ export const Scoreboard = () => {
   const handleAwayScoreChange = (newScore: number) => {
     setIsPaused(true);
     setAwayScore(newScore);
+  };
+
+  const handleLogoChange = (isHome: boolean) => (file: File) => {
+    const url = URL.createObjectURL(file);
+    if (isHome) {
+      setHomeLogo(url);
+    } else {
+      setAwayLogo(url);
+    }
   };
 
   return (
@@ -37,7 +48,9 @@ export const Scoreboard = () => {
           <TeamSection
             name={homeTeam}
             score={homeScore}
+            logoUrl={homeLogo}
             onScoreChange={handleHomeScoreChange}
+            onLogoChange={handleLogoChange(true)}
           />
         </div>
 
@@ -64,7 +77,9 @@ export const Scoreboard = () => {
           <TeamSection
             name={awayTeam}
             score={awayScore}
+            logoUrl={awayLogo}
             onScoreChange={handleAwayScoreChange}
+            onLogoChange={handleLogoChange(false)}
           />
         </div>
       </div>

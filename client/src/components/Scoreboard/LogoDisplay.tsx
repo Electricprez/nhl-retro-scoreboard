@@ -1,19 +1,27 @@
+import { useEffect, useState } from 'react';
+
 interface LogoDisplayProps {
   teamCode?: string;
 }
 
 export const LogoDisplay = ({ teamCode }: LogoDisplayProps) => {
-  let LogoComponent;
+  const [LogoComponent, setLogoComponent] = useState<any>(null);
 
-  try {
-    if (teamCode) {
-      // Dynamically import the logo component
-      const NHLLogos = require('react-nhl-logos');
-      LogoComponent = NHLLogos[`NHL${teamCode}Logo`];
+  useEffect(() => {
+    async function loadLogo() {
+      if (teamCode) {
+        try {
+          const NHLLogos = await import('react-nhl-logos');
+          const TeamLogo = NHLLogos[`NHL${teamCode}Logo`];
+          setLogoComponent(() => TeamLogo);
+        } catch (error) {
+          console.error('Error loading NHL logo:', error);
+        }
+      }
     }
-  } catch (error) {
-    console.error('Error loading NHL logo:', error);
-  }
+
+    loadLogo();
+  }, [teamCode]);
 
   return (
     <div className="relative w-24 h-24 border-2 border-gray-600 rounded-lg overflow-hidden bg-gray-800 flex items-center justify-center">

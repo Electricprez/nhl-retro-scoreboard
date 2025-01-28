@@ -25,15 +25,6 @@ export const Scoreboard = () => {
     setAwayScore(newScore);
   };
 
-  const handleLogoChange = (isHome: boolean) => (file: File) => {
-    const url = URL.createObjectURL(file);
-    if (isHome) {
-      setHomeLogo(url);
-    } else {
-      setAwayLogo(url);
-    }
-  };
-
   return (
     <div className="bg-gradient-to-b from-gray-900 to-black p-8 rounded-xl border-4 border-gray-300 shadow-[0_0_30px_rgba(255,255,255,0.1)] backdrop-blur-sm w-full max-w-5xl mx-auto">
       <div className="grid grid-cols-3 gap-12">
@@ -50,7 +41,6 @@ export const Scoreboard = () => {
             score={homeScore}
             logoUrl={homeLogo}
             onScoreChange={handleHomeScoreChange}
-            onLogoChange={handleLogoChange(true)}
           />
         </div>
 
@@ -79,7 +69,6 @@ export const Scoreboard = () => {
             score={awayScore}
             logoUrl={awayLogo}
             onScoreChange={handleAwayScoreChange}
-            onLogoChange={handleLogoChange(false)}
           />
         </div>
       </div>

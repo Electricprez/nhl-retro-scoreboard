@@ -15,27 +15,27 @@ export const TeamSection = ({ name, score, onScoreChange }: TeamSectionProps) =>
   };
 
   return (
-    <div className="flex flex-col items-center gap-4 p-4 border-2 border-white rounded">
-      <div className="text-2xl font-bold text-white uppercase">
+    <div className="flex flex-col items-center gap-6 p-6 border-4 border-gray-300 rounded-lg bg-gray-900 shadow-[0_0_20px_rgba(255,255,255,0.1)]">
+      <div className="text-2xl font-bold text-gray-100 uppercase tracking-wider">
         {name.slice(0, 3)}
       </div>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-4">
         <Button
           variant="ghost"
           size="icon"
           onClick={() => handleScoreChange(false)}
-          className="text-white hover:text-red-500"
+          className="text-gray-300 hover:text-red-500 hover:bg-gray-800 transition-colors duration-200"
         >
-          <MinusCircle className="h-6 w-6" />
+          <MinusCircle className="h-8 w-8" />
         </Button>
-        <DigitalDisplay value={score} className="text-4xl min-w-[4rem] text-center" />
+        <DigitalDisplay value={score} className="text-5xl min-w-[5rem] text-center" />
         <Button
           variant="ghost"
           size="icon"
           onClick={() => handleScoreChange(true)}
-          className="text-white hover:text-red-500"
+          className="text-gray-300 hover:text-red-500 hover:bg-gray-800 transition-colors duration-200"
         >
-          <PlusCircle className="h-6 w-6" />
+          <PlusCircle className="h-8 w-8" />
         </Button>
       </div>
     </div>

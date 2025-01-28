@@ -24,14 +24,14 @@ export const Scoreboard = () => {
   };
 
   return (
-    <div className="bg-black p-8 rounded-lg shadow-xl w-full max-w-4xl mx-auto">
-      <div className="grid grid-cols-3 gap-8">
-        <div className="flex flex-col gap-4">
+    <div className="bg-gradient-to-b from-gray-900 to-black p-8 rounded-xl border-4 border-gray-300 shadow-[0_0_30px_rgba(255,255,255,0.1)] backdrop-blur-sm w-full max-w-5xl mx-auto">
+      <div className="grid grid-cols-3 gap-12">
+        <div className="flex flex-col gap-6">
           <Input
             type="text"
             value={homeTeam}
             onChange={(e) => setHomeTeam(e.target.value)}
-            className="bg-gray-800 text-white border-white"
+            className="bg-gray-800 text-gray-100 border-2 border-gray-600 focus:border-red-500 focus:ring-1 focus:ring-red-500 rounded-md px-4 py-2 text-lg font-bold uppercase"
             maxLength={12}
           />
           <TeamSection
@@ -47,18 +47,18 @@ export const Scoreboard = () => {
             isPaused={isPaused}
             onPauseChange={setIsPaused}
           />
-          <div className="flex flex-col items-center gap-2">
-            <span className="text-white text-sm">PERIOD</span>
-            <DigitalDisplay value={period} className="text-3xl" />
+          <div className="flex flex-col items-center gap-4 mt-8">
+            <span className="text-gray-300 text-lg font-bold tracking-wider">PERIOD</span>
+            <DigitalDisplay value={period} className="text-4xl" />
           </div>
         </div>
 
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-6">
           <Input
             type="text"
             value={awayTeam}
             onChange={(e) => setAwayTeam(e.target.value)}
-            className="bg-gray-800 text-white border-white"
+            className="bg-gray-800 text-gray-100 border-2 border-gray-600 focus:border-red-500 focus:ring-1 focus:ring-red-500 rounded-md px-4 py-2 text-lg font-bold uppercase"
             maxLength={12}
           />
           <TeamSection

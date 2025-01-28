@@ -26,17 +26,19 @@ export const Clock = ({ periodLength, isPaused, onPauseChange }: ClockProps) => 
   const seconds = timeLeft % 60;
 
   return (
-    <div className="flex flex-col items-center gap-4">
-      <div className="flex items-center gap-1">
-        <DigitalDisplay value={minutes} className="text-4xl" />
-        <span className="text-4xl text-red-500">:</span>
-        <DigitalDisplay value={seconds} className="text-4xl" />
+    <div className="flex flex-col items-center gap-6">
+      <div className="flex items-center gap-2">
+        <DigitalDisplay value={minutes} className="text-6xl" />
+        <span className="text-6xl text-red-500 animate-pulse">:</span>
+        <DigitalDisplay value={seconds} className="text-6xl" />
       </div>
       <Button
         variant="outline"
         size="icon"
         onClick={() => onPauseChange(!isPaused)}
-        className="text-white hover:text-red-500"
+        className="w-12 h-12 rounded-full border-2 border-gray-300 
+                   text-gray-300 hover:text-red-500 hover:border-red-500 
+                   transition-colors duration-200"
       >
         {isPaused ? <Play className="h-6 w-6" /> : <Pause className="h-6 w-6" />}
       </Button>

@@ -6,7 +6,7 @@ import { PlusCircle, MinusCircle } from "lucide-react";
 interface TeamSectionProps {
   name: string;
   score: number;
-  logoUrl?: string;
+  logoUrl?: string;  // Added logoUrl as optional prop
   onScoreChange: (newScore: number) => void;
 }
 

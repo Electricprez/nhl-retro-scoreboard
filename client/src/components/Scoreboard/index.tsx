@@ -12,8 +12,6 @@ export const Scoreboard = () => {
   const [period, setPeriod] = useState(1);
   const [isPaused, setIsPaused] = useState(true);
   const [periodLength] = useState(20); // 20 minute periods
-  const [homeLogo, setHomeLogo] = useState<string>();
-  const [awayLogo, setAwayLogo] = useState<string>();
 
   const handleHomeScoreChange = (newScore: number) => {
     setIsPaused(true);
@@ -39,7 +37,6 @@ export const Scoreboard = () => {
           <TeamSection
             name={homeTeam}
             score={homeScore}
-            logoUrl={homeLogo}
             onScoreChange={handleHomeScoreChange}
           />
         </div>
@@ -67,7 +64,6 @@ export const Scoreboard = () => {
           <TeamSection
             name={awayTeam}
             score={awayScore}
-            logoUrl={awayLogo}
             onScoreChange={handleAwayScoreChange}
           />
         </div>
